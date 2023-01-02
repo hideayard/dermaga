@@ -1,0 +1,6 @@
+{
+    "name": "al/mqtt",
+    "require": {
+        "karpy47/php-mqtt-client": "^1.0"
+    }
+}

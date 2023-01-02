@@ -1,0 +1,14 @@
+[05-Oct-2022 04:15:40 UTC] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/kontrite/public_html/dermaga/config/MysqliDb.php on line 1676
+[12-Nov-2022 07:25:58 UTC] PHP Fatal error:  Uncaught ErrorException: implode(): Passing glue string after array is deprecated. Swap the parameters in /home/kontrite/public_html/dermaga/config/MysqliDb.php:1676
+Stack trace:
+#0 [internal function]: exceptions_error_handler(8192, 'implode(): Pass...', '/home/kontrite/...', 1676, Array)
+#1 /home/kontrite/public_html/dermaga/config/MysqliDb.php(1676): implode(Array, '`, `')
+#2 /home/kontrite/public_html/dermaga/config/MysqliDb.php(1405): MysqliDb->_buildInsertQuery(Array)
+#3 /home/kontrite/public_html/dermaga/config/MysqliDb.php(1367): MysqliDb->_buildQuery(NULL, Array)
+#4 /home/kontrite/public_html/dermaga/config/MysqliDb.php(679): MysqliDb->_buildInsert('node', Array, 'INSERT')
+#5 /home/kontrite/public_html/dermaga/actionnode.php(245): MysqliDb->insert('node', Array)
+#6 {main}
+  thrown in /home/kontrite/public_html/dermaga/config/MysqliDb.php on line 1676
+[10-Dec-2022 02:55:09 UTC] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/kontrite/public_html/dermaga/config/MysqliDb.php on line 1676
+[10-Dec-2022 02:55:10 UTC] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/kontrite/public_html/dermaga/config/MysqliDb.php on line 1676
+[10-Dec-2022 02:55:11 UTC] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/kontrite/public_html/dermaga/config/MysqliDb.php on line 1676

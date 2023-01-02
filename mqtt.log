@@ -1,0 +1,23 @@
+array(9) {
+  [0]=>
+  string(7) "Lampu 1"
+  [1]=>
+  string(7) "Lampu 2"
+  [2]=>
+  string(7) "Lampu 3"
+  [3]=>
+  string(7) "Lampu 4"
+  [4]=>
+  string(7) "Lampu 5"
+  [5]=>
+  string(7) "Lampu 6"
+  [6]=>
+  string(7) "Lampu 7"
+  [7]=>
+  string(7) "Lampu 8"
+  [8]=>
+  string(7) "LampuOK"
+}
+====================
+id = 1609434008 
+connecting to : mustang.rmq.cloudamqp.com:1883 
