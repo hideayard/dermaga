@@ -7,7 +7,7 @@ require_once ('config/MysqliDb.php');
 include_once ("config/db.php");
 $db = new MysqliDb ('localhost', $dbuser, $dbpass, $dbname);
 include("config/functions.php");       
-
+$tgl = (new \DateTime())->format('Y-m-d H:i:s');
 $file = basename($_SERVER['PHP_SELF']);
 $filename = (explode(".",$file))[0];
 {
@@ -29,7 +29,6 @@ $filename = (explode(".",$file))[0];
     $name = isset($_POST['name']) ? $_POST['name'] : ""; 
     $volume = isset($_POST['volume']) ? $_POST['volume'] : ""; 
     $price = isset($_POST['price']) ? $_POST['price'] : ""; 
-    $date = isset($_POST['date']) ? $_POST['date'] : ""; 
     $age = isset($_POST['age']) ? $_POST['age'] : ""; 
 
     $message = "Insert Sukses!!";
@@ -41,7 +40,6 @@ $filename = (explode(".",$file))[0];
             "name" => $name,
             "volume" => $volume,
             "price" => $price,
-            "date" => $date,
             "age" => $age,
     );
     $hasil_eksekusi = false;

@@ -52,7 +52,7 @@ function check_active($a,$b)
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link  <?=check_active($page,'tablenode')?>">
               <i class="nav-icon fas fa-microchip"></i>
               <p>
                 Node
@@ -77,7 +77,7 @@ function check_active($a,$b)
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?=check_active($page,'tablepanel')?>">
               <i class="nav-icon fas fa-microchip"></i>
               <p>
                 Panel
@@ -87,13 +87,13 @@ function check_active($a,$b)
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="tablepanel" class="nav-link<?=check_active($page,'tablepanel')?>">
+                <a href="tablepanel" class="nav-link <?=check_active($page,'tablepanel')?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Daftar Panel</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="addpanel" class="nav-link<?=check_active($page,'addpanel')?>">
+                <a href="addpanel" class="nav-link <?=check_active($page,'addpanel')?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tambah panel</p>
                 </a>
@@ -102,7 +102,7 @@ function check_active($a,$b)
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?=check_active($page,'tablesparepart')?>">
               <i class="nav-icon fas fa-microchip"></i>
               <p>
                 Sparepart
@@ -127,7 +127,7 @@ function check_active($a,$b)
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?=check_active($page,'tabledatasensor')?>">
               <i class="nav-icon fas fa-database"></i>
               <p>
                 Data
@@ -147,7 +147,7 @@ function check_active($a,$b)
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?=check_active($page,'users')?>">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 User

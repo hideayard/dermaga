@@ -92,13 +92,6 @@ if($mode!="modal")
                         </div>
 
                         <div class="form-group row">
-                            <label for="date" class="col-sm-3 col-form-label">Tanggal Pemasangan</label>
-                            <div class="col-sm-9">
-                            <input type="date" class="form-control" id="date" name="date" placeholder="Tanggal Pemasangan Sparepart">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="age" class="col-sm-3 col-form-label">Umur</label>
                             <div class="col-sm-9">
                             <input type="number" class="form-control" id="age" name="age" placeholder="Umur Sparepart">

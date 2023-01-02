@@ -6,6 +6,18 @@ $(document).ready(function () {
         }
     });
 
+    var tableSparepart = $("#tableSparepart").DataTable({
+        "ajax": {
+            url: "getDataSparepartAll.php",
+            type: "POST"
+        },
+        "dom": 'Bfrtip',
+        "columnDefs": [ 
+            // { "className": "dt-head-center", "targets": [ 0 ] },
+        ],
+        
+    });
+
     var tablePanel = $("#tablePanel").DataTable({
         "ajax": {
             url: "getDataPanel.php",

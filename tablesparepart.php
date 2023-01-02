@@ -7,8 +7,8 @@
 //end of auto
 
 $table = "sparepart";
-$txt_field= "code,name,volume,price,date,age,date_age_end,age_left";
-$txt_label = "'KODE','SPARE PART','VOLUME','HARGA SATUAN','TANGGAL PEMASANGAN','UMUR','TANGGAL HABIS UMUR','SISA UMUR'";
+$txt_field= "code,name,volume,price,age,status,id";
+$txt_label = "'KODE','SPARE PART','VOLUME','HARGA SATUAN','UMUR','STATUS','ACTION'";
 $q_field = explode(",",$txt_field);
 $q_label = explode(",",$txt_label);
 $i=1;$q_sesi = "select ".$q_field[0] ." as " .$q_label[0];
@@ -59,7 +59,7 @@ $d_sesi = $db->rawQuery($q_sesi);
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="tableSparepart" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <?php
@@ -120,5 +120,3 @@ $d_sesi = $db->rawQuery($q_sesi);
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-
-

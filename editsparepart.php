@@ -1,59 +1,11 @@
 
 
 <?php
-// $date = DateTime::createFromFormat('Y-m-d', '2012-10-17');
-// var_dump($date->format('Y-m-d H:i:s')); //will print 2012-10-17 13:57:34 (the current time)
-// echo "mode=".$mode;
-// if(isset($_POST['submit'])){ 
-//   //echo "tabel=".$table;
-//       if(isset($_POST['submit']))
-//       {
-//         $node_nama = isset($_POST['node_nama']) ? $_POST['node_nama'] : ""; 
-       
-
-// $data = Array ("node_id" => null,
-//                "node_nama" => $node_nama
-// );
-// $hasil = $db->insert ('node', $data);
-
-// // $hasil = $db->rawQuery($sql);// or die(mysql_error());
-// // echo "<script>alert('$hasil');</script>";
-// // var_dump($hasil);
-// if($hasil)
-// {
-//   $info = "Insert berhasil!";
-// }
-// else
-// {
-//   $info = "Insert gagal!";
-// }
-// // $p = "/tablenode";
-// // echo "<script>alert('$info');window.location='http://".$_SERVER['HTTP_HOST'].$prefix.$p."';</script>";
-//     }
-// }//echo $sql;
-
-// //  var_dump($hasil);
-//   // echo '<div class="callout callout-info"><h4>Info :</h4><strong></strong> Data berhasil di inputkan.!!</div>';
-  
-
 $id = isset($_GET['id']) ? $_GET['id'] : ""; 
 if($id && $id != "") {
-    $detail = $db->rawQuery("select * from panel where id = $id");
-
+    $detail = $db->rawQuery("select * from sparepart where id = $id");
+    // var_dump($detail); die;
 }
-$table2 = "sparepart";
-$txt_field2= "code,name,volume,price,age";
-$txt_label2 = "'KODE','SPARE PART','VOLUME','HARGA SATUAN','UMUR'";
-$q_field2 = explode(",",$txt_field2);
-$q_label2 = explode(",",$txt_label2);
-$i2=1;$q_sesi2 = "select ".$q_field2[0] ." as " .$q_label2[0];
-for($i2;$i2<count($q_field2);$i2++)
-{
-    $q_sesi2 .= ",".$q_field2[$i2] ." as " .$q_label2[$i2];
-}
-$q_sesi2 .= " from $table2";
-$d_sesi2 = $db->rawQuery($q_sesi2);
-
 
 if($mode!="modal")
 {
@@ -62,12 +14,6 @@ if($mode!="modal")
      <!-- Main content -->
      <section class="content">
       <div class="row">';
-}
-
-function checkStatus($a,$b) {
-    if($a==$b) {
-        return "selected";
-    }
 }
 
 ?>
@@ -79,42 +25,56 @@ function checkStatus($a,$b) {
               <div class="card-body">
                 <div class="tab-content">
                   
-                 <h2>Edit Panel</h2>
+                 
 
                   <div class="active tab-pane" id="update">
-                    <form class="form-horizontal"  id="panelform" action="#"  enctype="multipart/form-data" method="post">
-
+                    <form class="form-horizontal"  id="sparepartform" action="#"  enctype="multipart/form-data" method="post">
                         <input type="hidden" id="id" name="id" value="<?=$id?>" />
+
+                        <div class="form-group row">
+                            <label for="code" class="col-sm-3 col-form-label">Kode</label>
+                            <div class="col-sm-9">
+                            <input type="text" class="form-control" id="code" name="code" placeholder="Kode" value="<?=$detail[0]["code"]?>">
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">Nama</label>
                             <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Nama Panel" value="<?=$detail[0]["name"]?>">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nama Sparepart" value="<?=$detail[0]["code"]?>">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="status" class="col-sm-3 col-form-label">Status</label>
+                            <label for="volume" class="col-sm-3 col-form-label">Volume</label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="status" name="status" >
-                                <option value="1" <?=checkStatus($detail[0]["status"],"1")?>>Active</option>
-                                <option value="2" <?=checkStatus($detail[0]["status"],"2")?>>Pending</option>
-                                <option value="0" <?=checkStatus($detail[0]["status"],"3")?>>Non Active</option>
-                                </select>
-                            <!-- <input type="number" class="form-control" id="status" name="status" placeholder="Status Sparepart"> -->
+                            <input type="number" class="form-control" id="volume" name="volume" placeholder="Volume Sparepart" value="<?=$detail[0]["code"]?>">
                             </div>
                         </div>
-                      <div class="form-group row">
-                        <div class="col-sm-6">
-                            <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"><span class="fa fa-paper-plane"></span> Submit</button>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="tablepanel" class="btn btn-block btn-secondary"><span class="fa fa-arrow-left"></span> Back</a>
-                        </div>
-                      </div>
 
-    </div>
+                        <div class="form-group row">
+                            <label for="price" class="col-sm-3 col-form-label">Harga</label>
+                            <div class="col-sm-9">
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Harga Sparepart" value="<?=$detail[0]["code"]?>">
+                            </div>
+                        </div>
 
-    
+                        <div class="form-group row">
+                            <label for="age" class="col-sm-3 col-form-label">Umur</label>
+                            <div class="col-sm-9">
+                            <input type="number" class="form-control" id="age" name="age" placeholder="Umur Sparepart" value="<?=$detail[0]["age"]?>">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <button type="submit" id="btnSubmit" class="btn btn-block btn-primary"><span class="fa fa-paper-plane"></span> Submit</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="tablepanel" class="btn btn-block btn-secondary"><span class="fa fa-arrow-left"></span> Back</a>
+                            </div>
+                        </div>
+                    </form>
                   </div>
                   <!-- /.tab-pane -->
                 </div>
@@ -145,13 +105,18 @@ $(document).ready(function () {
     });
 
 
-    $('#panelform').validate({
+    $('#sparepartform').validate({
         rules: {
-            name: {   required: true,   }
-                   
+            name: {   required: true,   },
+            volume: {   required: true,   },
+            price: {   required: true,   },
+            age: {   required: true,   }
         },
         messages: {
-            name: {  required: "Input Nama Node", }
+            name: {  required: "Input Nama Sparepart", },
+            volume: {  required: "Input volume Sparepart", },
+            price: {  required: "Input Harga Sparepart", },
+            age: {  required: "Input Umur Sparepart", }
         },
         errorElement: 'span',
         errorPlacement: function (error, element) {
@@ -169,11 +134,10 @@ $(document).ready(function () {
 
     function submitForm()
     {
-
         $("#btnSubmit").html('<span class="fa fa-sync fa-spin"></span> Processing');
 
         // Get form
-        var form = $('#panelform')[0];
+        var form = $('#sparepartform')[0];
 
         // Create an FormData object
         var data = new FormData(form);
@@ -184,7 +148,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
-            url: "actionpanel.php",
+            url: "actionsparepart.php",
             data: data,
             processData: false,
             contentType: false,
@@ -210,27 +174,25 @@ $(document).ready(function () {
                 {
                     Swal.fire(
                         'Success!',
-                        'Success Edit Data!',
+                        'Success Input Data!',
                         'success'
                         );
                     console.log("SUCCESS : ", data);
                     // setTimeout(function(){ window.location="node"; }, 1000);
                         // $('#my-awesome-dropzone')[0].dropzone.removeAllFiles(true); 
                     $("#btnSubmit").html('<span class="fa fa-paper-plane"></span> Submit');
-                    $("#panelform")[0].reset();
-                    // window.location="/tablepanel";
+                    $("#sparepartform")[0].reset();
                     history.back();
                 }
                 else 
                 {
-                Swal.fire(
-                    'error!',
-                    'Error Edit Data, '+data,
-                    'error'
-                    );
-                
-                console.log("ERROR : ", data);
-                $("#btnSubmit").html('<span class="fa fa-paper-plane"></span> Submit');
+                    Swal.fire(
+                        'error!',
+                        'Error Input Data, '+data,
+                        'error'
+                        );
+                    console.log("ERROR : ", data);
+                    $("#btnSubmit").html('<span class="fa fa-paper-plane"></span> Submit');
 
                 }
 
@@ -239,10 +201,10 @@ $(document).ready(function () {
             //error data not json
             Swal.fire(
                     'error!',
-                    'Error Edit Data,<br> '+data,
+                    'Error Input Data,<br> '+data,
                     'error'
                     );
-                
+
                 console.log("ERROR : ", data);
                 $("#btnSave").html('<span class="fa fa-save"></span> Save');
             } 
