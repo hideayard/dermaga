@@ -120,3 +120,93 @@ $d_sesi = $db->rawQuery($q_sesi);
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+
+
+<script>
+
+$(document).ready(function () {
+});
+
+function deleteSparepart(id_sparepart) {
+        if(id_sparepart) {
+            if(confirm("are you sure?")) {
+                var table = $('#example').DataTable();
+                // $.ajax({
+                //     url: "processSparepart.php?delete",
+                //     type: 'POST',
+                //     data: { id: id },
+                //     dataType: 'json',
+                //     success: function (response) {
+                //         alert(response);
+                //         table.ajax.reload(null, false);
+                //     }
+                // });
+                $.ajax({
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    url: "processSparepartAll.php?id="+id_sparepart+"&delete",
+                    // data: { id: id_sparepart },
+                    // dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
+                    success: function (data) {
+                    var rv;
+                    try {
+                    console.log("RETURN : ", data);
+
+                    rv = JSON.parse(data);
+                    console.log("rv : ", rv);
+
+                    if(isEmpty(rv))
+                    {
+                            Swal.fire(
+                            'Info!',
+                            'No Data!',
+                            'info'
+                            );
+                        console.log("NO DATA : ", data);
+                    }
+                    else
+                    {
+                        if(rv.status==true||rv.status=="true")
+                        {
+                        Swal.fire(
+                            'Success!',
+                            'Success Delete Data!',
+                            'success'
+                            );
+                            console.log("SUCCESS : ", data);
+                            location.reload();
+
+                        }
+                        else 
+                        {
+                        Swal.fire(
+                            'error!',
+                            'Error Delete Data, '+data,
+                            'error'
+                            );
+                        console.log("ERROR : ", data);
+                        }
+                    }
+                    } catch (e) {
+                    Swal.fire(
+                            'error!',
+                            'Error Delete Data,<br> '+data,
+                            'error'
+                            );
+                        console.log("catch ERROR : ", data);
+                        $("#btnSave").html('<span class="fa fa-save"></span> Save');
+                    } 
+                },
+                error: function (e) {
+                    console.log("ERROR : ", e);
+                }
+                });
+            }
+            return false;
+        }
+    }
+</script>

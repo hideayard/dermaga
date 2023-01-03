@@ -138,4 +138,24 @@ class Record
         }
     }
 
+    public function softDeleteSparepart($id)
+    {
+        try {
+            $this->conn->beginTransaction();
+
+            $stmt = $this->conn->prepare("UPDATE sparepart SET is_deleted=1  WHERE id=?");
+            $stmt->execute([$id]);
+
+            $this->conn->commit();
+
+            echo json_encode( array("status" => true,"info" => "OK","messages" => "sukses hapus sparepart" ) );
+
+            return true;
+
+        } catch (PDOExeption $e) {
+            $this->conn->rollback();
+            echo $e->getMessage();
+        }
+    }
+
 }

@@ -8,17 +8,17 @@ try {
 
     $output   = ['data' => []];
 
-    $sql = "SELECT * FROM sparepart";
+    $sql = "SELECT * FROM sparepart where is_deleted !=1";
     
     $stmt=$app->query($sql);
     $stmt->execute();
     while ($row=$stmt->fetch()) {
 
-        $actionbutton = '<a class="btn btn-warning" href="index.php?page=editsparepart&id=' . $row['id'] . '">Edit</a>';
+        $actionbutton = '<a class="btn btn-warning" href="index.php?page=editsparepart&id=' . $row['id'] . '">Edit</a> | <button onclick="deleteSparepart(\'' . $row['id'] . '\')" class="btn btn-danger"><i class="fa fa-trash"></i></button>';
 
         $output['data'][] = [
             // '<input class="form-check-input" type="button" value="' . $row['id'] . '" />',
-            // '<button onclick="deleteSparepart(\'' . $row['id'] . '\')" class="btn btn-danger"><i class="fa fa-trash"></i></button>',
+            // '',
             // '',
             $row['code'],
             $row['name'],
