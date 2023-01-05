@@ -7,6 +7,12 @@ $tgl = isset($_POST['tgl']) ? $_POST['tgl'] : $now;
 $jsonDetail = json_decode($detail);
 // var_dump( $jsonDetail );die;
 
+if(!$jsonDetail->data) {
+    echo '<script>
+    alert("panel tidak boleh kosong");
+    history.back();
+    </script>';
+}
 $ids = implode(",",$jsonDetail->data);
 $panel = $db->rawQuery("select * from panel where id in ('$ids')");
 
@@ -187,10 +193,10 @@ $(document).ready(function () {
                     .reduce( function (a, b) {
                         return a + b.replace(/[^\d]/g, '')*1;
                     }, 0) ;
-                return 'Total Biaya Sparepart '+group+' = '+
-                $.fn.dataTable.render.number(',', '.', 0, 'Rp.').display( total )
-                +' dan Expired = '+
-                $.fn.dataTable.render.number(',', '.', 0, 'Rp.').display( expired );
+                return 'Total Biaya Expired Sparepart '+group+' = '+
+                $.fn.dataTable.render.number(',', '.', 0, 'Rp.').display( total );
+                // +' dan Expired = '+
+                // $.fn.dataTable.render.number(',', '.', 0, 'Rp.').display( expired );
 
             },
             "dataSrc": 0

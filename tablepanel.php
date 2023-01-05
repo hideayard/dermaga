@@ -67,9 +67,7 @@ $d_sesi = $db->rawQuery($q_sesi);
                         <td> <label>Tanggal Acuan : </label> </td>
                         <td> <input type="date" id="tgl" name="tgl" class="form-control"/> </td>
                         <td> | 
-                        <!-- <a class="btn btn-success" href="index.php?page=sorted_panel">Sortir <?=ucfirst($table)?></a> -->
-                          <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
-                              Sortir <?=ucfirst($table)?>
+                          <button type="submit" class="btn btn-success">Sortir <?=ucfirst($table)?>
                           </button> 
                         </td>
                       </tr>

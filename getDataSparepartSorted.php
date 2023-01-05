@@ -20,7 +20,8 @@ try {
     , if ( (pd.age - ( DATEDIFF( '$tgl' , pd.date ) )) <= 30,'true','false' ) as isbelow30
     FROM panel_detail pd
     join panel p on p.id = pd.id_panel 
-    where pd.id_panel in ($id_panels) ";
+    where pd.id_panel in ($id_panels) and  ( (pd.age - ( DATEDIFF( '$tgl' , pd.date ) )) <= 30 )";
+    
     // echo $sql;
     $stmt=$app->query($sql);
     $stmt->execute();
